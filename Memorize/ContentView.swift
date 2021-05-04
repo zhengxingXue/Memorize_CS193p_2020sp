@@ -16,12 +16,12 @@ struct ContentView: View {
             ForEach(viewModel.cards) { card in
                 CardView(card: card).onTapGesture {
                     viewModel.choose(card: card)
-                }
+                }.aspectRatio(CGSize(width: 2, height: 3), contentMode: .fit)
             }
         }
             .padding()
             .foregroundColor(.orange)
-            .font(.largeTitle)
+            .font(viewModel.cards.count >= 5 ? .title : .largeTitle)
     }
 }
 
