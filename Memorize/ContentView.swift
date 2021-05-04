@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    /// View Model for the emoji memory game
     var viewModel: EmojiMemoryGame
     
     var body: some View {
@@ -24,7 +25,9 @@ struct ContentView: View {
     }
 }
 
+/// A structure that construct view for a card
 struct CardView: View {
+    /// The card for view
     var card: MemoryGame<String>.Card
     
     var body: some View {
