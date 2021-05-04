@@ -22,7 +22,6 @@ struct Grid<Item, ItemView>: View where Item: Identifiable, ItemView: View {
     
     /**
      Create a grid with the given items and viewForItem function
-     
      - parameters:
         - items: the items in the view
         - viewForItem: view builder for the items
