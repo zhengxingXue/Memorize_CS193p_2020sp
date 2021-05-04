@@ -8,9 +8,9 @@
 import SwiftUI
 
 /// View Model Class for emoji memory game
-class EmojiMemoryGame {
+class EmojiMemoryGame: ObservableObject {
     /// The  Model for emoji memory game
-    private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
+    @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
     
     /// Create a new memory game model
     static func createMemoryGame() -> MemoryGame<String> {
@@ -30,5 +30,5 @@ class EmojiMemoryGame {
      - Parameters:
         - card: the card to choose
      */
-    func choose(card: MemoryGame<String>.Card) { model.choose(card: card) }
+    func choose(_ card: MemoryGame<String>.Card) { model.choose(card) }
 }
