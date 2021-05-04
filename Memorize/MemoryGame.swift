@@ -12,6 +12,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     /// Array containing all the cards in the game
     var cards: [Card]
     
+    /// Index of the one and only face up card, otherwise nil
     var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get { cards.indices.filter { cards[$0].isFaceUp }.only }
         set {
@@ -22,7 +23,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     /**
-     Choose card from cards array
+     Choose card from cards array and check if the face up cards are matched
      - parameters:
         - card: The card to choose
      */
@@ -41,7 +42,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
 
     /**
-     Initialize the memory game
+     Create a memory game with the given number of pairs and card content factory
      - parameters:
         - numberOfPairsOfCards: The number of pairs of cards to be initialized
         - cardContentFactory: The function that takes Integer as input and output CardContent

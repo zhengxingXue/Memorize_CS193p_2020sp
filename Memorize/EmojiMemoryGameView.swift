@@ -24,6 +24,8 @@ struct EmojiMemoryGameView: View {
             .foregroundColor(.orange)
             .font(.largeTitle)
     }
+    
+    
 }
 
 /// A structure that construct view for a card
