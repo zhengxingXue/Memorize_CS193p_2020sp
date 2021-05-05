@@ -10,10 +10,10 @@ import Foundation
 /// Model for memory game
 struct MemoryGame<CardContent> where CardContent: Equatable {
     /// Array containing all the cards in the game
-    var cards: [Card]
+    private(set) var cards: [Card]
     
     /// Index of the one and only face up card, otherwise nil
-    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get { cards.indices.filter { cards[$0].isFaceUp }.only }
         set {
             for index in cards.indices {

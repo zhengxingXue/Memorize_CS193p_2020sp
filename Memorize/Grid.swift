@@ -17,8 +17,8 @@ import SwiftUI
  ```
  */
 struct Grid<Item, ItemView>: View where Item: Identifiable, ItemView: View {
-    var items: [Item]
-    var viewForItem: (Item) -> ItemView
+    private var items: [Item]
+    private var viewForItem: (Item) -> ItemView
     
     /**
      Create a grid with the given items and viewForItem function
@@ -38,7 +38,7 @@ struct Grid<Item, ItemView>: View where Item: Identifiable, ItemView: View {
         }
     }
     
-    func body(for layout: GridLayout) -> some View {
+    private func body(for layout: GridLayout) -> some View {
         ForEach(items) { item in
             let index = items.firstIndex(matching: item)!
             viewForItem(item)
