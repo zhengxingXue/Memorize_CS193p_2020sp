@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383D0C2D2642F5CF0015B6A3 /* Simulator_L4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 383D0C2C2642F5CF0015B6A3 /* Simulator_L4.gif */; };
 		38F10A1F264097DE00E5A427 /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F10A1E264097DE00E5A427 /* MemorizeApp.swift */; };
 		38F10A21264097DE00E5A427 /* EmojiMemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F10A20264097DE00E5A427 /* EmojiMemoryGameView.swift */; };
 		38F10A23264097E100E5A427 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F10A22264097E100E5A427 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		383D0C2C2642F5CF0015B6A3 /* Simulator_L4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Simulator_L4.gif; sourceTree = "<group>"; };
 		38F10A1B264097DE00E5A427 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F10A1E264097DE00E5A427 /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		38F10A20264097DE00E5A427 /* EmojiMemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				38F10A322640A5E800E5A427 /* l2.pdf */,
 				38F10A342640A6F000E5A427 /* l2_slide15.png */,
+				383D0C2C2642F5CF0015B6A3 /* Simulator_L4.gif */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				38F10A332640A5E800E5A427 /* l2.pdf in Resources */,
 				38F10A302640A1BF00E5A427 /* README.md in Resources */,
 				38F10A352640A6F000E5A427 /* l2_slide15.png in Resources */,
+				383D0C2D2642F5CF0015B6A3 /* Simulator_L4.gif in Resources */,
 				38F10A26264097E100E5A427 /* Preview Assets.xcassets in Resources */,
 				38F10A23264097E100E5A427 /* Assets.xcassets in Resources */,
 			);
