@@ -12,6 +12,10 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     /// Array containing all the cards in the game
     var cards: [Card]
     
+    var theme: Theme
+    
+    var score: Int
+    
     /// Index of the one and only face up card, otherwise nil
     var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get { cards.indices.filter { cards[$0].isFaceUp }.only }
@@ -23,7 +27,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     /**
-     Choose card from cards array and check if the face up cards are matched
+     Choose card from cards array, check if the face up cards are matched, and update score
      - parameters:
         - card: The card to choose
      */
@@ -33,34 +37,53 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                     cards[chosenIndex].isMathed = true
                     cards[potentialMatchIndex].isMathed = true
+                    score += 2
+                } else {
+                    score -= cards[chosenIndex].isSeen ? 1 : 0
+                    score -= cards[potentialMatchIndex].isSeen ? 1 : 0
+                    cards[chosenIndex].isSeen = true
+                    cards[potentialMatchIndex].isSeen = true
                 }
                 cards[chosenIndex].isFaceUp = true
             } else {
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
+
         }
     }
 
     /**
      Create a memory game with the given number of pairs and card content factory
      - parameters:
-        - numberOfPairsOfCards: The number of pairs of cards to be initialized
+        - theme: The theme of the game
         - cardContentFactory: The function that takes Integer as input and output CardContent
      */
-    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
+    init(theme: Theme, cardContentFactory: (Int) -> CardContent) {
+        self.theme = theme
+        score = 0
         cards = [Card]()
-        for pairIndex in 0..<numberOfPairsOfCards {
+        for pairIndex in 0..<theme.numberOfPairsOfCards {
             let content = cardContentFactory(pairIndex)
             cards.append(Card(content: content, id: pairIndex*2))
             cards.append(Card(content: content, id: pairIndex*2+1))
         }
+        cards.shuffle()
     }
     
     /// Single card for memory game
     struct Card: Identifiable {
         var isFaceUp: Bool = false
         var isMathed: Bool = false
+        var isSeen: Bool = false
         var content: CardContent
         var id: Int
+    }
+    
+    /// Theme for memory game
+    struct Theme {
+        let name : String
+        let contents : [CardContent]
+        let numberOfPairsOfCards : Int
+        let color : String
     }
 }
