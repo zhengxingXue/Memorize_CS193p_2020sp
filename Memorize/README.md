@@ -4,7 +4,7 @@ Match the cards with same pattern using memory.
 
 ## Game Play
 
-<img src="resources/Simulator_L4.gif" alt="simulator"/>
+<img src="resources/Simulator_L4.gif" alt="simulator" width="300"/>
 
 ## Model - View - ViewModel (MVVM)
 
