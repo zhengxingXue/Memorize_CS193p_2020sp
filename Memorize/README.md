@@ -6,7 +6,7 @@ Match the cards with same pattern using memory.
 
 Demo game play iPhone11 simulator recording:
 <p align="middle">
-    <img src="resources/Simulator_L4.gif" alt="simulator lecture 4" width="300"/>
+    <img src="resources/Simulator_L6.gif" alt="simulator lecture 6" width="300"/>
 </p>
 
 Assignment 2 game play iPhone11 simulator recording:
