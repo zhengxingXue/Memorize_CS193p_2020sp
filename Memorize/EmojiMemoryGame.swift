@@ -10,12 +10,19 @@ import SwiftUI
 /// View Model Class for emoji memory game
 class EmojiMemoryGame: ObservableObject {
     /// The  Model for emoji memory game
-    @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
+    @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame() {
+        didSet {
+            // UserDefaults.standard.set(model.theme.json, forKey: EmojiMemoryGame.untitled)
+            // print("json = \(model.theme.json?.utf8 ?? "nil")")
+        }
+    }
+    
+    // private static let untitled = "Memorize.Untitled"
     
     private static let themeArray = [
-        MemoryGame<String>.Theme(name: "Halloween", contents: ["👻", "💀", "🎃"], numberOfPairsOfCards: 3, color: "orange"),
-        MemoryGame<String>.Theme(name: "Animals", contents: ["🐈", "🐶", "🐷"], numberOfPairsOfCards: 3, color: "blue"),
-        MemoryGame<String>.Theme(name: "Sports", contents: ["🏐", "🎾", "⚾️", "🏀", "🏈", "🏓"], numberOfPairsOfCards: 6, color: "red")
+        MemoryGame<String>.Theme(name: "Halloween", contents: ["👻", "💀", "🎃"], numberOfPairsOfCards: 3, color: .orange),
+        MemoryGame<String>.Theme(name: "Animals", contents: ["🐈", "🐶", "🐷"], numberOfPairsOfCards: 3, color: .blue),
+        MemoryGame<String>.Theme(name: "Sports", contents: ["🏐", "🎾", "⚾️", "🏀", "🏈", "🏓"], numberOfPairsOfCards: 6, color: .red)
     ]
     
     /// Create a new memory game model
@@ -31,14 +38,7 @@ class EmojiMemoryGame: ObservableObject {
     
     var themeName: String { model.theme.name }
     
-    var themeColor: Color {
-        switch model.theme.color {
-            case "orange": return .orange
-            case "blue" : return .blue
-            case "red" : return .red
-            default: return .gray
-        }
-    }
+    var themeColor: Color { Color(model.theme.color) }
     
     var score : Int { model.score }
     

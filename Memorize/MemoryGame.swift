@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// Model for memory game
-struct MemoryGame<CardContent> where CardContent: Equatable {
+struct MemoryGame<CardContent> where CardContent: Equatable, CardContent: Codable {
     /// Array containing all the cards in the game
     var cards: [Card]
     
@@ -68,6 +69,8 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
             cards.append(Card(content: content, id: pairIndex*2+1))
         }
         cards.shuffle()
+        // A5
+        print("json = \(self.theme.json?.utf8 ?? "nil")")
     }
     
     /// Single card for memory game
@@ -80,10 +83,21 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     /// Theme for memory game
-    struct Theme {
+    struct Theme: Codable {
         let name : String
         let contents : [CardContent]
         let numberOfPairsOfCards : Int
-        let color : String
+        let color : UIColor.RGB
+        
+        init(name: String, contents: [CardContent], numberOfPairsOfCards: Int, color : UIColor) {
+            self.name = name
+            self.contents = contents
+            self.numberOfPairsOfCards = numberOfPairsOfCards
+            self.color = color.rgb
+        }
+        
+        var json: Data? {
+            return try? JSONEncoder().encode(self)
+        }
     }
 }
